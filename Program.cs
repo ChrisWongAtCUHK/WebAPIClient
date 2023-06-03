@@ -10,7 +10,14 @@ client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Repor
 var repositories = await ProcessRepositoriesAsync(client);
 
 foreach (var repo in repositories)
-    Console.WriteLine(repo.Name);
+{
+    Console.WriteLine($"Name: {repo.Name}");
+    Console.WriteLine($"Homepage: {repo.Homepage}");
+    Console.WriteLine($"GitHub: {repo.GitHubHomeUrl}");
+    Console.WriteLine($"Description: {repo.Description}");
+    Console.WriteLine($"Watchers: {repo.Watchers:#,0}");
+    Console.WriteLine();
+}
 
 static async Task<List<Repository>> ProcessRepositoriesAsync(HttpClient client)
 {
