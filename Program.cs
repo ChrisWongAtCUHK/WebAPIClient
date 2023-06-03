@@ -7,13 +7,15 @@ client.DefaultRequestHeaders.Accept.Add(
     new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
 client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
-await ProcessRepositoriesAsync(client);
+var repositories = await ProcessRepositoriesAsync(client);
 
-static async Task ProcessRepositoriesAsync(HttpClient client)
+foreach (var repo in repositories)
+    Console.WriteLine(repo.Name);
+
+static async Task<List<Repository>> ProcessRepositoriesAsync(HttpClient client)
 {
   await using Stream stream =
     await client.GetStreamAsync("https://api.github.com/orgs/dotnet/repos");
   var repositories = await JsonSerializer.DeserializeAsync<List<Repository>>(stream);
-  foreach (var repo in repositories ?? Enumerable.Empty<Repository>())
-    Console.WriteLine(repo.Name);
+  return repositories ?? new();
 }

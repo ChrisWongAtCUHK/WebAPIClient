@@ -2,3 +2,4 @@
 * [Make HTTP requests](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient#make-http-requests)
 * [Deserialize the JSON Result](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient#deserialize-the-json-result)
 * [Configure deserialization](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient#deserialize-the-json-result)
+* [Refactor the code](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient#refactor-the-code)
